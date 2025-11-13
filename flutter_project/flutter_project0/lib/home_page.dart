@@ -88,44 +88,51 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          height: 500,
-          width: 300,
+          height: 700,
+          width: 500,
           margin: EdgeInsets.all(20), //bairer diker space
           padding: EdgeInsets.all(20), //vitorer diker space
-          decoration: BoxDecoration(),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.red, width: 3),            
+            borderRadius: BorderRadius.circular(30),
+            color: Colors.amber,
+          ),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 Text(
-                  "welcome home",
+                  "Welcome to home",
                   style: GoogleFonts.lobster(fontSize: 30), // Fixed font usage
                 ),
-                Image.asset('assets/images/image1.jpeg', height: 400),
+                Image.asset('assets/images/stargazing__the_longing_by_mind_makers_djmgpqn-pre.jpg', height: 400),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.brown,
-                        foregroundColor: Colors.deepOrangeAccent,
-                        fixedSize: Size(200, 20),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          // backgroundColor: Colors.brown,
+                          // foregroundColor: Colors.deepOrangeAccent,
+                          // fixedSize: Size(200, 20),
+                        ),
+                        child: Text("Elavated"),
                       ),
-                      child: Text("Elavated"),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(),
-                      child: Text("Texted"),
-                    ),
-                    OutlinedButton(onPressed: () {}, child: Text("Outlined")),
-                  ],
+                      TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(),
+                        child: Text("Texted"),
+                      ),
+                      OutlinedButton(onPressed: () {}, child: Text("Outlined")),
+                    ],
+                  ),
                 ),
-                SizedBox(height: 20),
+                // SizedBox(height: 20),
                 Container(height: 100, width: 100, color: Colors.cyan),
 
-                Image.asset('assets/images.jpg', height: 400, fit: BoxFit.fill),
+                // Image.asset('assets/images.jpg', height: 400, fit: BoxFit.fill),
                 //Image.network('location') //online theke pic add korte
               ],
             ),
