@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_project0/profile_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,7 +10,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 90, 20, 97),
-        foregroundColor: const Color.fromARGB(255, 255, 255, 255),
+        foregroundColor: Colors.white,
         title: const Text("My Flutter Project"),
         actions: [
           IconButton(
@@ -20,20 +21,26 @@ class HomePage extends StatelessWidget {
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.notifications),
-            tooltip: "notification",
+            tooltip: "Notifications",
           ),
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.settings),
-            tooltip: "settings",
+            tooltip: "Settings",
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => ProfilePage()),
+              );
+            },
             icon: const Icon(Icons.person),
-            tooltip: "about_info",
+            tooltip: "Profile",
           ),
         ],
       ),
+
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromARGB(255, 255, 193, 7),
         foregroundColor: Colors.black,
@@ -42,6 +49,7 @@ class HomePage extends StatelessWidget {
         elevation: 50,
         child: const Icon(Icons.add_box_sharp),
       ),
+
       drawer: Drawer(
         child: Column(
           children: [
@@ -54,57 +62,78 @@ class HomePage extends StatelessWidget {
                 accountEmail: Text("Email"),
               ),
             ),
+
             ListTile(
-              onTap: () {},
               leading: const Icon(Icons.home),
               title: const Text("Home Page"),
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
             const Divider(),
+
             ListTile(
-              onTap: () {},
               leading: const Icon(Icons.person),
               title: const Text("Profile Page"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => ProfilePage()),
+                );
+              },
             ),
             const Divider(),
+
             ListTile(
-              onTap: () {},
               leading: const Icon(Icons.newspaper),
               title: const Text("Blog & Newsletter"),
+              onTap: () {},
             ),
             const Divider(),
-            const Expanded(child: Spacer()), // Fixed Spacer usage
+
+            const Spacer(),
+
             ListTile(
-              onTap: () {},
               leading: const Icon(Icons.settings),
               title: const Text("Settings"),
+              onTap: () {},
             ),
             ListTile(
-              onTap: () {},
               leading: const Icon(Icons.info),
               title: const Text("About"),
+              onTap: () {},
             ),
           ],
         ),
       ),
+
       body: Center(
         child: Container(
           height: 700,
           width: 500,
-          margin: EdgeInsets.all(20), //bairer diker space
-          padding: EdgeInsets.all(20), //vitorer diker space
+          margin: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.red, width: 3),            
-            borderRadius: BorderRadius.circular(30),
             color: Colors.amber,
+            borderRadius: BorderRadius.circular(30),
+            border: Border.all(color: Colors.red, width: 3),
           ),
+
           child: SingleChildScrollView(
             child: Column(
               children: [
                 Text(
                   "Welcome to home",
-                  style: GoogleFonts.lobster(fontSize: 30), // Fixed font usage
+                  style: GoogleFonts.lobster(fontSize: 30),
                 ),
-                Image.asset('assets/images/stargazing__the_longing_by_mind_makers_djmgpqn-pre.jpg', height: 400),
+
+                Image.asset(
+                  'assets/images/stargazing__the_longing_by_mind_makers_djmgpqn-pre.jpg',
+                  height: 400,
+                ),
+
+                const SizedBox(height: 20),
 
                 Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -112,28 +141,41 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => ProfilePage()),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
-                          // backgroundColor: Colors.brown,
-                          // foregroundColor: Colors.deepOrangeAccent,
-                          // fixedSize: Size(200, 20),
+                          backgroundColor: Colors.black,
+                          foregroundColor: Colors.white,
                         ),
-                        child: Text("Elavated"),
+                        child: const Text("Elevated"),
                       ),
+
+                      const SizedBox(width: 10),
+
                       TextButton(
                         onPressed: () {},
-                        style: TextButton.styleFrom(),
-                        child: Text("Texted"),
+                        child: const Text("Texted"),
                       ),
-                      OutlinedButton(onPressed: () {}, child: Text("Outlined")),
+
+                      const SizedBox(width: 10),
+
+                      OutlinedButton(
+                        onPressed: () {},
+                        child: const Text("Outlined"),
+                      ),
                     ],
                   ),
                 ),
-                // SizedBox(height: 20),
-                Container(height: 100, width: 100, color: Colors.cyan),
 
-                // Image.asset('assets/images.jpg', height: 400, fit: BoxFit.fill),
-                //Image.network('location') //online theke pic add korte
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.cyan,
+                ),
               ],
             ),
           ),
@@ -141,6 +183,4 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-} //easily wrap korte ctrl shift R wrap with wigdet then SingleChild..
-          // removw widget: ctrl shift R remove widget,
-        
+}
